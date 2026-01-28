@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Counter</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+        }
+        #count {
+            font-size: 48px;
+            color: green;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="count">0</div>
+    <button id="increase">+</button>
+    <button id="decrease">−</button>
+    <button id="reset">Reset</button>
+    <script>
+        let count = 0;
+        const countDisplay = document.getElementById("count");
+        const incBtn = document.getElementById("increase");
+        const decBtn = document.getElementById("decrease");
+        const resetBtn = document.getElementById("reset");
+
+        incBtn.addEventListener("click", function () {
+            count++;
+            updateDisplay();
+        });
+
+        decBtn.addEventListener("click", function () {
+            count--;
+            updateDisplay();
+        });
+
+        resetBtn.addEventListener("click", function () {
+            count = 0;
+            updateDisplay();
+        });
+
+        function updateDisplay() {
+            countDisplay.innerText = count;
+
+            if (count < 0) {
+                countDisplay.style.color = "red";
+            } else {
+                countDisplay.style.color = "green";
+            }
+        }
+    </script>
+
+</body>
+</html>
